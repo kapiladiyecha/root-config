@@ -1,51 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>React Microfrontends</title>
-  <meta name="importmap-type" content="systemjs-importmap" />
-  <script type="systemjs-importmap" src="https://storage.googleapis.com/react.microfrontends.app/importmap.json"></script>
-  <% if (isLocal) { %>
-  <script type="systemjs-importmap">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Microfrontends</title>
+    <meta name="importmap-type" content="systemjs-importmap"/>
+    <!--      <script type="systemjs-importmap" src="https://storage.googleapis.com/react.microfrontends.app/importmap.json"></script>-->
+
+
+    <script type="systemjs-importmap">
+  {
+  "imports": {
+    "react": "https://unpkg.com/react@16.13.0/umd/react.development.js",
+    "react-dom": "https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js",
+    "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.5.3/lib/system/single-spa.min.js",
+    "@react-mf/root-config": "https://react.microfrontends.app/root-config/0574ac109e21e878b463bf8eecdb496817453e38/react-mf-root-config.js",
+    "@react-mf/navbar": "https://react.microfrontends.app/navbar/48f782a8fefa7634914153dcb257459134517eb9/react-mf-navbar.js",
+    "@react-mf/styleguide": "https://react.microfrontends.app/styleguide/f3db5e12a741774e3315e81d50ccf6eab4a05503/react-mf-styleguide.js",
+    "@react-mf/people": "https://react.microfrontends.app/people/0faccd4ca6a407bf9c8da72337d55eed8318baef/react-mf-people.js",
+    "@react-mf/api": "https://react.microfrontends.app/api/b78f4cf02e99f6abba7b930677be5110165313af/react-mf-api.js",
+    "@react-mf/planets": "https://react.microfrontends.app/planets/231749af10f836f105c08e3fd25cd4ec1502976c/react-mf-planets.js",
+    "@react-mf/things": "https://react.microfrontends.app/things/7f209a1ed9ac9690835c57a3a8eb59c17114bb1d/react-mf-things.js",
+    "rxjs": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs.min.js",
+    "rxjs/operators": "https://cdn.jsdelivr.net/npm/@esm-bundle/rxjs@6.5.5/system/rxjs-operators.min.js",
+    "@react-mf/api/": "https://react.microfrontends.app/api/b78f4cf02e99f6abba7b930677be5110165313af/",
+    "@react-mf/people/": "https://react.microfrontends.app/people/0faccd4ca6a407bf9c8da72337d55eed8318baef/",
+    "@react-mf/navbar/": "https://react.microfrontends.app/navbar/48f782a8fefa7634914153dcb257459134517eb9/",
+    "@react-mf/planets/": "https://react.microfrontends.app/planets/231749af10f836f105c08e3fd25cd4ec1502976c/",
+    "@react-mf/styleguide/": "https://react.microfrontends.app/styleguide/f3db5e12a741774e3315e81d50ccf6eab4a05503/",
+    "@react-mf/root-config/": "https://react.microfrontends.app/root-config/0574ac109e21e878b463bf8eecdb496817453e38/",
+
+    "ag-grid-community": "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/23.2.1/ag-grid-community.min.js",
+    "ag-grid-react": "https://cdn.jsdelivr.net/npm/ag-grid-react@23.2.1/main.min.js"
+  },
+      "scopes": {
+            "//localhost:8080/react-mf-people.js": {
+               "ag-grid-community": "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/21.0.1/ag-grid-community.min.js",
+              "ag-grid-react": "https://cdn.jsdelivr.net/npm/ag-grid-react@21.0.1/main.min.js"
+            },
+            "//localhost:8081/react-mf-planets.js": {
+               "ag-grid-community": "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/21.0.1/ag-grid-community.min.js",
+              "ag-grid-react": "https://cdn.jsdelivr.net/npm/ag-grid-react@21.0.1/main.min.js"
+            },
+            "//localhost:8082/react-mf-navbar.js": {
+                "react": "https://unpkg.com/react@16.13.0/umd/react.development.js",
+                "react-dom": "https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js",
+               "ag-grid-community": "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/21.0.1/ag-grid-community.min.js",
+              "ag-grid-react": "https://cdn.jsdelivr.net/npm/ag-grid-react@21.0.1/main.min.js"
+            },
+            "//localhost:8081/react-mf-styleguide.js": {
+                "react": "https://unpkg.com/react@16.13.0/umd/react.development.js",
+                "react-dom": "https://unpkg.com/react-dom@16.13.0/umd/react-dom.development.js",
+               "ag-grid-community": "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/21.0.1/ag-grid-community.min.js",
+              "ag-grid-react": "https://cdn.jsdelivr.net/npm/ag-grid-react@21.0.1/main.min.js"
+            }
+          }
+
+}
+
+
+
+
+
+
+
+    </script>
+    <% if (isLocal) { %>
+        <script type="systemjs-importmap">
     {
       "imports": {
-        "@react-mf/root-config": "//localhost:9000/react-mf-root-config.js"
+
+        "@react-mf/root-config": "//localhost:9000/react-mf-root-config.js",
+        "@react-mf/people": "http://micro-ui.local/person/react-mf-people.js",
+        "@react-mf/planets": "http://micro-ui.local/planet/react-mf-planets.js",
+        "ag-grid-community": "https://cdnjs.cloudflare.com/ajax/libs/ag-grid/23.2.1/ag-grid-community.min.js",
+        "ag-grid-react": "https://cdn.jsdelivr.net/npm/ag-grid-react@23.2.1/main.min.js"
       }
     }
-  </script>
-  <% } %>
-  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
-  <template id="single-spa-layout">
-    <single-spa-router>
-      <nav class="topnav">
-        <application name="@react-mf/navbar"></application>
-      </nav>
-      <div class="main-content mt-16">
-        <route path="people">
-          <application name="@react-mf/people"></application>
-        </route>
-        <route path="planets">
-          <application name="@react-mf/planets"></application>
-        </route>
-        <route default>
-          <h1 class="flex flex-row justify-center p-16">
-            <p class="max-w-md">This example project shows independently built and deployed microfrontends that use React and single-spa. Each nav link above takes you to a different microfrontend.</p>
-          </h1>
-        </route>
-      </div>
-    </single-spa-router>
-  </template>
+
+
+
+
+
+
+
+        </script>
+    <% } %>
+
+    <script src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/amd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/extras/named-exports.min.js"></script>
+    <template id="single-spa-layout">
+        <single-spa-router>
+            <nav class="topnav">
+                <application name="@react-mf/navbar"></application>
+            </nav>
+            <div class="main-content mt-16">
+                <route path="people">
+                    <application name="@react-mf/people"></application>
+                </route>
+                <route path="planets">
+                    <application name="@react-mf/planets"></application>
+                </route>
+                <route default>
+                    <h1 class="flex flex-row justify-center p-16">
+                        <p class="max-w-md">This example project shows independently built and deployed microfrontends
+                            that use React and single-spa. Each nav link above takes you to a different
+                            microfrontend.</p>
+                    </h1>
+                </route>
+            </div>
+        </single-spa-router>
+    </template>
 </head>
 <body>
-  <script>
+<script>
     System.import('@react-mf/root-config');
     System.import('@react-mf/styleguide');
-  </script>
-  <import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
+</script>
+<import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full>
 </body>
 </html>
